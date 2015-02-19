@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Search</title>
+  
+  <script type='text/javascript' src='build/app_bundle.js'></script>
+  
+  <style type='text/css'>
+    img {
+    width: 200px;
+    height: 200px;
+}
+
+#search {
+    margin-bottom: 1em;
+}
+
+.item {
+    float:left;
+    padding: 2em;
+    width: 250px;
+    height:500px;
+    display: inline-block;
+    vertical-align: top;
+    margin:2em;
+    border:solid;
+
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.description {
+    margin-top: 0.5em;
+    font-size: 75%;
+    height:39%;
+    overflow:auto;
+}
+
+
+
+nav{
+    clear:both;
+    display:block;
+    margin:5px;
+    padding:5px;
+    margin-top:10px;
+
+}
+
+main{
+    min-height:100%;
+    overflow-y: hidden;
+    position:relative;
+}
+
+aside{
+    display:inline;
+}
+
+
+  </style>
+  
+</head>
+<body>
+
+<div data-ng-app="app" data-ng-controller="MainController" data-ng-cloak>
+    <section id="search">
+        <span><input type="text" data-ng-model="search"/></span>
+        <span><button>Search</button></span>
+    </section>
+    <main class="contentArea">
+        <article class="item" data-ng-repeat="item in filteredItems| startAtIndex:(index-1)*max |limitTo:max">
+            <p class="title">{{item.title}}</p>
+            <img class="img" data-ng-src="{{item.picture}}"/>
+            <p class="description">{{item.description}}</p>
+
+        </article>
+    </main>    
+    <nav>
+        <aside data-ng-show="pagesCount>0">page{{index}} of {{pagesCount}} </aside>
+        <aside data-ng-show="pagesCount<1">No content matching {{search}}</aside>
+        <button data-ng-show="index>1" data-ng-click=prevPage()>Previous</button>
+        <button  data-ng-show="pagesCount>1 && index<pagesCount" data-ng-click=nextPage()>Next</button>
+    </nav> 
+</div>
+
+</body>
+</html>

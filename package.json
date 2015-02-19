@@ -1,0 +1,22 @@
+{
+  "name": "socrata",
+  "version": "1.0.0",
+  "description": "Tests for Angular live search App",
+  "main": "test.js",
+  "scripts": {
+    "test": "Grunt"
+  },
+  "author": "Taiga Matsumoto",
+  "license": "MIT",
+  "devDependencies": {
+    "debowerify": "^1.2.0",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^3.3.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-karma": "^0.10.1",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  }
+}
